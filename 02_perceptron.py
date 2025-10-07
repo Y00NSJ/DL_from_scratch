@@ -1,0 +1,17 @@
+import numpy as np
+
+
+def AND(x1, x2):
+    # 파라미터: 휴리스틱으로 결정
+    w1, w2 = 0.5, 0.5
+    theta  = 0.7
+    # 가중치를 곱한 입력의 총합이 임곗값을 초과해야 출력 뉴런 활성화
+    weighted_sum = w1*x1 + w2*x2
+    return 1 if weighted_sum > theta else 0
+
+def AND_bias(x1, x2):
+    x = np.array([x1, x2])
+    w = np.array([0.5, 0.5])
+    b = -0.7
+    weighted_sum = np.sum(w + x) + b
+    return 1 if weighted_sum > 0 else 0
