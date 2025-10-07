@@ -13,5 +13,19 @@ def AND_bias(x1, x2):
     x = np.array([x1, x2])
     w = np.array([0.5, 0.5])
     b = -0.7
-    weighted_sum = np.sum(w + x) + b
+    weighted_sum = np.sum(w * x) + b
+    return 1 if weighted_sum > 0 else 0
+
+def NAND(x1, x2):
+    x = np.array([x1, x2])
+    w = np.array([-0.5, -0.5])
+    b = 0.7
+    weighted_sum = np.sum(w * x) + b
+    return 1 if weighted_sum > 0 else 0 #라뷰
+
+def OR(x1, x2):
+    x = np.array([x1, x2])
+    w = np.array([0.3, 0.3])
+    b = -0.2
+    weighted_sum = np.sum(w * x) + b
     return 1 if weighted_sum > 0 else 0
