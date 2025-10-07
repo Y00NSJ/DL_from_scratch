@@ -29,3 +29,23 @@ def OR(x1, x2):
     b = -0.2
     weighted_sum = np.sum(w * x) + b
     return 1 if weighted_sum > 0 else 0
+
+
+inputs = [[0, 0], [0, 1], [1, 0], [1, 1]]
+truth_table = np.array(inputs)
+header = np.array([["x1", "x2", "AND", "NAND", "OR"]])
+
+and_outputs = []
+nand_outputs = []
+or_outputs = []
+for row in inputs:
+    x1, x2 = row
+    and_outputs.append(AND_bias(x1, x2))
+    nand_outputs.append(NAND(x1, x2))
+    or_outputs.append(OR(x1, x2))
+
+truth_table = np.c_[truth_table, and_outputs, nand_outputs, or_outputs]
+truth_table = np.vstack([header, truth_table.astype(str)])
+
+for row in truth_table:
+    print(*row, sep='\t')
