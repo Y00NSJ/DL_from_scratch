@@ -31,3 +31,8 @@ y = sigmoid(x)
 plt.plot(x, y)
 plt.ylim(-0.1, 1.1)
 plt.show()
+
+
+## ReLU 함수 구현
+def relu(x):
+    return np.maximum(0, x)
